@@ -206,10 +206,14 @@ the mascot.
 - The tops of the CromIKO pages keep their tinted card in the rounded
   style of the settings of Chromium 153.
 
-## CromIKO for Windows
+## CromIKO for Windows and Linux
 
 The Windows version is built by `tools/cromiko/build.sh` (option 3 of
 `server-build.sh`), cross-compiled on the Linux build server like Cromite's.
+The Linux version (option 4) is built natively from the same patches, packed
+as a `.tar.xz` with a launcher and `install.sh` for the desktop entry
+(`CromIKO-Linux.patch`: its own profile folder, desktop entry and icons). The
+steps below are for both: the desktop patches are not only for Windows.
 Each step below is its own `CromIKO-Windows-*.patch` (or a change of the
 build scripts), built and tried before the next one.
 
@@ -231,18 +235,18 @@ code: secure DNS with Quad9 and the CromIKO providers, every pop-up held
 
 | # | Feature | On Windows | Effort | Status |
 |---|---------|------------|:------:|:------:|
-| 2.1 | Fire button | "Burn tabs and data" in the app menu, with the CromIKO fire icon: after a confirmation it closes all tabs and windows, also incognito ones, without keeping them in Recent tabs, deletes history, cookies, site data and cache of all time, and leaves one window with a new tab and "All clean!" (`CromIKO-Windows-Fire-Button.patch`) | small | done, to try |
-| 2.2 | CromIKO DNS | The secure DNS setting is named CromIKO DNS, and says what each provider filters (ads, family, malware, nothing), like the Android screen | small | |
-| 2.3 | Download manager | The CromIKO queue on Windows too: connections per file (faster big files), downloads at the same time, a queue that waits; its settings in Settings > Downloads | small | |
-| 2.4 | Accent colors | The CromIKO colors (Periwinkle, Lavender, Mint, ...) first in Customize Chrome | small | |
+| 2.1 | Fire button | "Burn tabs and data" in the app menu, with the CromIKO fire icon: after a confirmation with the mascot in front of a flame, it closes all tabs and windows, also incognito ones, without keeping them in Recent tabs, deletes history, cookies, site data and cache of all time, and leaves one window with a new tab and "All clean!" (`CromIKO-Windows-Fire-Button.patch`) | small | done, to try |
+| 2.2 | CromIKO DNS | The CromIKO DNS screen in the security settings: the animated orbit with the big status, "Test connection", and the providers as cards that say what they filter, in the order of the Android screen; "CromIKO DNS" in the app menu opens it (`CromIKO-Windows-DNS.patch`) | medium | done, to try |
+| 2.3 | Download manager | The CromIKO queue on Windows too: 4 connections per file (faster big files), 3 downloads at the same time and a queue that waits ("In queue" in chrome://downloads and the download bubble, "• 4 connections" while it runs), pause on metered connections; a CromIKO card in Settings > Downloads with a live preview of each choice (`CromIKO-Windows-Download-Manager.patch`) | small | done, to try |
+| 2.4 | Accent colors | The 11 CromIKO colors (Periwinkle, Lavender, Mint, ...) first in Customize Chrome, then the muted ones of Chromium (`CromIKO-Windows-Accent-Colors.patch`) | small | done, to try |
 
 ### Step 3: the CromIKO pages
 
 | # | Feature | On Windows | Effort | Status |
 |---|---------|------------|:------:|:------:|
-| 3.1 | New tab page | The mascot instead of the Chromium logo, the shield card (ads and trackers blocked this week, opens the report) and the CromIKO shortcuts (bookmarks, downloads, DNS) | medium | |
-| 3.2 | Weekly shield report | A CromIKO page (chrome://cromiko/report) with the count of the week, the bars of the days, last week, the sites and trackers blocked the most and the pop-ups held, from the same counts as Android | medium | |
-| 3.3 | CromIKO settings | A CromIKO section at the top of Settings with all CromIKO features and their icons, like the Android page: DNS, pop-up guard, ad blocking, report, Fire button, download manager, colors, player, manga mode | medium | |
+| 3.1 | New tab page | The CromIKO new tab page for every search engine: the CromIKO logo (mascot and wordmark, single-colored on dark themes and background images) instead of the Google logo, the shield card under the shortcuts (ads and trackers blocked this week with a chart of the days, opens the weekly shield report) and the CromIKO shortcuts (Bookmarks, Downloads, CromIKO DNS) (`CromIKO-Windows-New-Tab-Page.patch`) | medium | done, to try |
+| 3.2 | Weekly shield report | A page of the CromIKO settings (chrome://settings/cromiko/report), opened by the shield card of the new tab page: the count of the week compared with the same days of last week, the bars of the days, last week's total, the sites (with their favicons) and trackers blocked the most, from the same counts as Android. The pop-ups held come with 4.2 (`CromIKO-Windows-Settings.patch`) | medium | done, to try |
+| 3.3 | CromIKO settings | "CromIKO" at the top of Settings (Settings open on it) with all CromIKO features and their icons, like the Android page: CromIKO DNS and its status, pop-up guard, ad blocking, the report, the Fire button (with a button), colors and new tab page (Customize CromIKO), download manager; the player and manga mode come with step 4 (`CromIKO-Windows-Settings.patch`) | medium | done, to try |
 | 3.4 | Edit the new tab page | The widgets of 3.1 moved, made small or turned off, like Edit home screen on Android | medium | |
 
 ### Step 4: the big features
